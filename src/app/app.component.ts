@@ -5,6 +5,16 @@ export class Hero {
   name: string;
 }
 
+const HEROES: Hero[] = [
+  { id: 11, name: "Mr. Nice" },
+  { id: 12, name: "Narco" },
+  { id: 13, name: "Bombasto" },
+  { id: 14, name: "Superman" },
+  { id: 15, name: "Batman" },
+  { id: 16, name: "Robin" },
+  { id: 17, name: "ICQ" }
+];
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +23,16 @@ export class Hero {
     <h1>
       {{title}}
     </h1>
+    <h2>
+      My Heroes
+    </h2>
+    <ul class="heroes">
+      <li *ngFor="let hero for heroes">
+        
+        <!--<label>{{this.heroes[1].name}}</label>-->
+        <!--something should be here-->
+      </li>
+    </ul>
     <h2>
       {{hero.name}} details!
     </h2>
@@ -24,12 +44,12 @@ export class Hero {
 })
 
 export class AppComponent {
-  title = 'app';
-  test = 231;
+  title = 'Tour of Heroes';
   hero: Hero = {
     id: 1,
     name: 'azaza'
   };
+  heroes = HEROES;
   // constructor() {
   //   setInterval( () => {
   //     this.test = Math.floor(Math.random() * 100);
